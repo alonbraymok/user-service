@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const postSchema = new Schema(
+const taskSchema = new Schema(
   {
     title: {
       type: String,
@@ -9,9 +9,9 @@ const postSchema = new Schema(
     },
     imageUrl: {
       type: String,
-      required: true,
+      required: false,
     },
-    content: {
+    description: {
       type: String,
       required: true,
     },
@@ -19,8 +19,20 @@ const postSchema = new Schema(
       type: Object,
       required: true,
     },
+    owner: {
+      type: String,
+      required: false,
+    },
+    parent: {
+      type: String,
+      required: false,
+    },
+    children: {
+      type: Array,
+      required: false,
+    },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Post", postSchema);
+module.exports = mongoose.model("task", taskSchema);
