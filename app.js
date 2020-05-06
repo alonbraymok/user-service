@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 
 var cors = require("cors");
 
-const taskRoutes = require("./routes/task");
+const userRoutes = require("./routes/user");
 
 const { DB_CONNECT } = require("./config");
 
@@ -13,9 +13,9 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json()); // application/json
 
-app.use(taskRoutes);
+app.use(userRoutes);
 
 mongoose
   .connect(DB_CONNECT)
-  .then(app.listen(8080))
+  .then(app.listen(8081))
   .catch((err) => console.log(err));
