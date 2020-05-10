@@ -4,9 +4,6 @@ const userController = require("../controllers/user");
 
 const router = express.Router();
 
-// GET /task/:taskId   get single task by id
-// router.get("/user/:taskId", userController.getUser);
-
 // // GET /user/users
 router.get("/users", userController.getUsers);
 
